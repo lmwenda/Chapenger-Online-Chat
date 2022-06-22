@@ -56,7 +56,7 @@ const Messenger = ({ socket, username, roomID }: IMessenger) => {
                         <ScrollToBottom className="h-full w-full overflow-y-scoll overflow-x-hidden">
                             {
                                 messages.map((_message: any) => (
-                                        <div className={`flex my-3 mx-3 ${_message.author === username ? "justify-left" : "justify-end"}`}>
+                                        <div key={_message.key} className={`flex my-3 mx-3 ${_message.author === username ? "justify-left" : "justify-end"}`}>
                                             <div>
                                                 <div className="h-10 w-64 text-left pl-5 items-center pt-1 text-white text-2xl border border-blue-500 bg-blue-500 rounded-full">{_message.message}</div>
                                                 <div className="text-left pl-3 text-gray-500 flex flex-row space-x-3">
