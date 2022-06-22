@@ -1,1 +1,1 @@
-export const BASE_URL = "https://chapenger.herokuapp.com/";
+export const BASE_URL = "https://chapenger-backend.herokuapp.com";
