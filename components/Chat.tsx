@@ -1,6 +1,5 @@
 import { Socket } from "socket.io-client";
 import React, { useEffect, useState } from "react";
-import scrolltobottom from "react-scroll-to-bottom";
 import ScrollToBottom from "react-scroll-to-bottom";
 
 interface IMessenger {
