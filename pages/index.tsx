@@ -1,10 +1,10 @@
-import { FormEvent, useState } from 'react';
-import io from "socket.io-client";
 import type { NextPage } from 'next'
-import Messenger from '../components/Chat'
+import Messenger from '../components/Chat';
+import { FormEvent, useState } from 'react';
+import io, { Socket } from "socket.io-client";
 import { BASE_URL } from '../utils/exportedConstonants';
 
-const socket = io.connect(BASE_URL)
+const socket: Socket<any> = io(BASE_URL);
 
 const Home: NextPage = () => {
   const [ roomID, setRoomID ] = useState<string>("");
