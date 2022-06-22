@@ -2,7 +2,7 @@ import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
 import { Server, Socket } from "socket.io";
-import { ORIGIN_BASE_URL } from "./utils/endpoints";
+import { BASE_URL, ORIGIN_BASE_URL } from "./utils/endpoints";
 import express, { Application } from 'express';
 
 // Configurations
