@@ -4,7 +4,7 @@ import { FormEvent, useState } from 'react';
 import io, { Socket } from "socket.io-client";
 import { BASE_URL } from '../utils/exportedConstonants';
 
-const socket: Socket<any> = io(BASE_URL);
+const socket: Socket<any> = io();
 
 const Home: NextPage = () => {
   const [ roomID, setRoomID ] = useState<string>("");
