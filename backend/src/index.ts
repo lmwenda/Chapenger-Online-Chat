@@ -19,7 +19,7 @@ const server = http.createServer(serverless(app));
 export const io = new Server(server, {
     cors: {
         origin: ORIGIN_BASE_URL,
-        methods: ["GET", "POST"] 
+        methods: ["GET", "POST"],
     }
 }).listen(port)
 
@@ -27,7 +27,8 @@ export const io = new Server(server, {
 app.use(
   cors({
     exposedHeaders: "",
-    origin: ORIGIN_BASE_URL
+    origin: ORIGIN_BASE_URL,
+    
   })
 );
 app.use(express.json());
