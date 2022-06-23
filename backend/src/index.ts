@@ -1,9 +1,10 @@
 import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
-import { Server, Socket } from "socket.io";
+import serverless from "serverless-http";
+import { Server } from "socket.io";
 import { BASE_URL, ORIGIN_BASE_URL } from "./utils/endpoints";
-import express, { Application } from 'express';
+import express, { Router } from 'express';
 
 // Configurations
 
@@ -11,9 +12,10 @@ dotenv.config();
 
 // Initializations
 
-const port: number = 5000;
-const app: Application = express();
-const server = http.createServer(app);
+const router = Router();
+const port: any = process.env.PORT || 5000;
+const app = express();
+const server = http.createServer(serverless(app));
 export const io = new Server(server, {
     cors: {
         origin: ORIGIN_BASE_URL,
@@ -32,7 +34,7 @@ app.use(express.json());
 
 // Sockets 
 
-io.on("connection", (socket: Socket) => {
+io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
     
     socket.on("join_room", (data) => {
@@ -48,3 +50,8 @@ io.on("connection", (socket: Socket) => {
         console.log("User Disconnected:", socket.id)
     })
 })
+
+
+app.use('./netlify/functions/', router)
+
+export default serverless(app);
